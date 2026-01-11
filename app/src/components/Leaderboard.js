@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 
 const Leaderboard = () => {
   const [data, setData] = useState([]);
-  const endpoint = `https://${process.env.REACT_APP_CODESPACE_NAME}-8000.app.github.dev/api/leaderboard/`;
+  const codespace = process.env.REACT_APP_CODESPACE_NAME || (window.location.host.split('-8000')[0]);
+  const endpoint = `https://${codespace}-8000.app.github.dev/api/leaderboard/`;
 
   useEffect(() => {
     console.log('Fetching from:', endpoint);
